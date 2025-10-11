@@ -1,59 +1,20 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { X, FileText, Eye, Download, Shield, Users, Clock, ChevronRight } from 'lucide-react';
-
+import r1 from "../assets/r1.png"
 // Sample data for templates
 const templates = [
   {
     id: 1,
-    name: "General Health Report",
-    description: "Comprehensive overview of patient health metrics and vital signs",
-    preview: {
-      patientName: "John Doe — SAMPLE",
-      id: "P-00000-DEMO",
-      date: "2025-01-15",
-      doctor: "Dr. Jane Smith — SAMPLE",
-      vitals: {
-        bloodPressure: "120/80 mmHg",
-        heartRate: "72 bpm",
-        temperature: "98.6°F",
-        weight: "165 lbs"
-      },
-      notes: "Sample notes for demonstration purposes only. This is not real medical data."
-    }
+    picofr: r1
   },
   {
     id: 2,
-    name: "Lab Results Template",
-    description: "Standard laboratory test results with reference ranges",
-    preview: {
-      patientName: "Jane Smith — SAMPLE",
-      id: "P-00001-DEMO",
-      date: "2025-01-16",
-      doctor: "Dr. Robert Johnson — SAMPLE",
-      tests: [
-        { name: "Hemoglobin", value: "14.5 g/dL", range: "12-16 g/dL", status: "Normal" },
-        { name: "White Blood Cell", value: "7.2 K/uL", range: "4-11 K/uL", status: "Normal" },
-        { name: "Glucose", value: "95 mg/dL", range: "70-100 mg/dL", status: "Normal" }
-      ],
-      notes: "Sample laboratory data for demonstration only. Not actual medical results."
-    }
+    picofr: r1
   },
   {
     id: 3,
-    name: "Prescription Template",
-    description: "Medication prescription format with dosage and instructions",
-    preview: {
-      patientName: "Bob Wilson — SAMPLE",
-      id: "P-00002-DEMO",
-      date: "2025-01-17",
-      doctor: "Dr. Emily Davis — SAMPLE",
-      medications: [
-        { name: "Sample Medication A", dosage: "10mg", frequency: "Twice daily", duration: "14 days" },
-        { name: "Sample Medication B", dosage: "5mg", frequency: "Once daily", duration: "30 days" }
-      ],
-      notes: "Fictitious prescription for UI demonstration only. Never use as actual prescription."
-    }
-  }
+    picofr: r1
+  },
 ];
 
 const MedicalReportDemo = () => {
@@ -139,20 +100,20 @@ const MedicalReportDemo = () => {
       {/* Animated Background */}
       <div className="animated-bg">
         {/* Parallax Gradient Layers */}
-        <div 
+        <div
           className="gradient-layer parallax-layer"
           style={{
             transform: `translate(${mousePosition.x * 0.5}px, ${mousePosition.y * 0.5}px)`
           }}
         />
-        <div 
+        <div
           className="gradient-layer parallax-layer opacity-60"
           style={{
             transform: `translate(${-mousePosition.x * 0.3}px, ${-mousePosition.y * 0.3}px)`,
             animationDelay: '5s'
           }}
         />
-        
+
         {/* Particle Field */}
         {particles.map((particle) => (
           <div
@@ -171,7 +132,7 @@ const MedicalReportDemo = () => {
         ))}
       </div>
 
-      
+
 
       {/* Warning Banner */}
       <div className="warning-banner text-white py-3 px-4 text-center font-bold text-sm md:text-base sticky top-0 z-50">
@@ -227,30 +188,26 @@ const MedicalReportDemo = () => {
       </section>
 
       {/* How to Use Section */}
-      
+
 
       {/* Templates Section */}
       <section id="templates" ref={templatesRef} className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-4">Sample Templates</h2>
           <p className="text-center text-gray-300 mb-12 text-lg">All templates contain fictitious data for demonstration purposes</p>
-          
+
           <div className="grid md:grid-cols-3 gap-8">
             {templates.map((template, idx) => (
-              <div key={template.id} className="template-card glass-card p-8 rounded-3xl hover:shadow-2xl hover:scale-105 transition-all relative overflow-hidden">
+              <div key={template.id} className="template-card  glass-card p-8 rounded-3xl hover:shadow-2xl hover:scale-105 transition duration-300  relative overflow-hidden">
                 <div className="absolute top-4 right-4 bg-red-500 text-white text-xs px-3 py-1 rounded-full font-bold">
                   SAMPLE
                 </div>
-                <FileText className="w-12 h-12 text-cyan-400 mb-4" />
-                <h3 className="text-2xl font-bold mb-3">{template.name}</h3>
-                <p className="text-gray-300 mb-6">{template.description}</p>
+                <img src={template.picofr} alt="" />
                 <button
-                  onClick={() => openModal(template)}
-                  className="w-full bg-cyan-500 text-slate-900 py-3 rounded-xl font-bold hover:bg-cyan-400 transition-all inline-flex items-center justify-center"
-                  aria-label={`Preview ${template.name}`}
+                  className="w-full bg-cyan-500 text-slate-900 py-3 rounded-xl font-bold hover:bg-cyan-400 transition-all inline-flex items-center justify-center mt-4"
                 >
                   <Eye className="mr-2 w-5 h-5" />
-                  Preview Template
+                  Use This template
                 </button>
               </div>
             ))}
@@ -317,13 +274,13 @@ const MedicalReportDemo = () => {
               <h4 className="font-bold text-lg mb-4">Follow Us</h4>
               <div className="flex space-x-4">
                 <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors" aria-label="Twitter">
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" /></svg>
                 </a>
                 <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors" aria-label="GitHub">
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" /></svg>
                 </a>
                 <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors" aria-label="LinkedIn">
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>
                 </a>
               </div>
             </div>
@@ -337,14 +294,14 @@ const MedicalReportDemo = () => {
 
       {/* Modal */}
       {isModalOpen && selectedTemplate && (
-        <div 
+        <div
           className="modal-backdrop fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
           onClick={closeModal}
           role="dialog"
           aria-modal="true"
           aria-labelledby="modal-title"
         >
-          <div 
+          <div
             className="modal-content glass-card rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-auto relative"
             onClick={(e) => e.stopPropagation()}
           >
@@ -465,7 +422,7 @@ const MedicalReportDemo = () => {
                   <Download className="mr-2 w-5 h-5" />
                   Download Sample (Demo)
                 </button>
-                <button 
+                <button
                   onClick={closeModal}
                   className="flex-1 glass-card py-3 rounded-xl font-bold hover:bg-white/10 transition-all"
                 >

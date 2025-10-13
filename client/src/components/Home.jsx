@@ -1,18 +1,19 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { X, FileText, Eye, Download, Shield, Users, Clock, ChevronRight } from 'lucide-react';
 import r1 from "../assets/r1.png"
+import { Link } from 'react-router';
 // Sample data for templates
 const templates = [
   {
-    id: 1,
+    id: "GENREPNO1",
     picofr: r1
   },
   {
-    id: 2,
+    id: "GENREPNO2",
     picofr: r1
   },
   {
-    id: 3,
+    id: "GENREPNO3",
     picofr: r1
   },
 ];
@@ -203,12 +204,12 @@ const MedicalReportDemo = () => {
                   SAMPLE
                 </div>
                 <img src={template.picofr} alt="" />
-                <button
+                <Link to={`/${template.id}`}><button
                   className="w-full bg-cyan-500 text-slate-900 py-3 rounded-xl font-bold hover:bg-cyan-400 transition-all inline-flex items-center justify-center mt-4"
                 >
                   <Eye className="mr-2 w-5 h-5" />
                   Use This template
-                </button>
+                </button></Link>
               </div>
             ))}
           </div>

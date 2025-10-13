@@ -170,19 +170,7 @@ const MedicalReportGen = () => {
   };
 
   const handleExport = () => {
-    // Browser-native print to PDF implementation
-    if (!validateForm()) {
-      alert('Please fix validation errors before exporting.');
-      return;
-    }
-    
-    // Open preview first
-    setShowPreview(true);
-    
-    // Wait for preview to render, then trigger print
-    setTimeout(() => {
-      window.print();
-    }, 500);
+     console.log(formData)
   };
 
   const clearData = () => {
@@ -523,34 +511,7 @@ const MedicalReportGen = () => {
           </div>
 
           {/* Signature Section */}
-          <div className="bg-white/5 backdrop-blur rounded-xl p-6 mb-6 border border-white/10">
-            <h2 className="text-2xl font-semibold text-white mb-4">Signature</h2>
-            <div className="grid md:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-white/80 text-sm mb-2" htmlFor="signatureText">Typed Signature</label>
-                <input
-                  id="signatureText"
-                  type="text"
-                  value={formData.signature}
-                  onChange={(e) => setFormData(prev => ({ ...prev, signature: e.target.value }))}
-                  style={{ fontFamily: 'cursive' }}
-                  className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-400"
-                  placeholder="Enter signature name"
-                />
-              </div>
-              <div>
-                <label className="block text-white/80 text-sm mb-2" htmlFor="signatureUpload">Or Upload Signature</label>
-                <input
-                  id="signatureUpload"
-                  type="file"
-                  accept="image/*"
-                  onChange={handleSignatureUpload}
-                  className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg text-white file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:bg-blue-500 file:text-white hover:file:bg-blue-600"
-                />
-                {signaturePreview && <img src={signaturePreview} alt="Signature preview" className="mt-2 h-16 rounded" />}
-              </div>
-            </div>
-          </div>
+          
 
           {/* Action Buttons */}
           <div className="flex gap-4 justify-center">

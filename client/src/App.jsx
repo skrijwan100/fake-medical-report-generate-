@@ -4,14 +4,23 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import MedicalReportDemo from './components/Home'
 import MedicalReportGen from './components/ReportGen'
-
+import {
+  BrowserRouter ,
+  Routes,
+  Route,
+} from "react-router-dom";
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      {/* <MedicalReportDemo/> */}
-      <MedicalReportGen/>
+    <BrowserRouter>
+    <Routes>
+      <Route path='/' element={ <MedicalReportDemo/>}/>
+      <Route path='/:id' element={<MedicalReportGen/>}/>
+    </Routes>
+    
+    </BrowserRouter>
+    
     </>
   )
 }

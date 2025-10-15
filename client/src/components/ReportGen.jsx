@@ -169,8 +169,18 @@ const MedicalReportGen = () => {
     }
   };
 
-  const handleExport = () => {
-     console.log(formData)
+  const handleExport = async() => {
+    console.log(formData)
+    const url=`${import.meta.env.VITE_BACKEND_URL}/api/v1/gen/genreport`
+    // const res= await fetch(url,{
+    //   method:'POST',
+    //   headers:{
+    //     "Content-Type": "application/json"
+    //   },
+    //   body:JSON.stringify({diagnosis:formData.diagnosis,doctor:formData.doctor,patient:formData.patient,prescriptions:formData.prescriptions,rx:formData.rx,signature:formData.signature})
+    // })
+    // const data= await res.json()
+     console.log(data)
   };
 
   const clearData = () => {
